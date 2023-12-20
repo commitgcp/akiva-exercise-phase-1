@@ -17,5 +17,5 @@ su - appadmin -c "git clone https://github.com/commitgcp/akiva-exercise-phase-1.
 su - appadmin -c "cd ~/app/ && npm install"
 sleep 20
 su - appadmin -c "wget https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.0.0/cloud-sql-proxy.linux.amd64 \
--O cloud-sql-proxy && chmod +x cloud-sql-proxy && ./cloud-sql-proxy --private-ip akiva-sandbox:us-central1:private-instance-5c6cc309 &"
+-O cloud-sql-proxy && chmod +x cloud-sql-proxy && ./cloud-sql-proxy --private-ip akiva-sandbox:us-central1:phase1-db &"
 su - appadmin -c ". ~/.nvm/nvm.sh && nvm install 12 && sleep 10 && cd ~/app && npm run initdb && npm run dev"
