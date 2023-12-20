@@ -4,6 +4,10 @@ provider "google" {
   region      = "us-central1" 
 }
 
+resource "google_compute_address" "static" {
+  name = "ipv4-address"
+}
+
 resource "google_compute_instance" "phase1-instance" {
   name         = "phase1-instance"
   machine_type = "e2-micro"
@@ -24,7 +28,7 @@ resource "google_compute_instance" "phase1-instance" {
     network = "default"
 
     access_config {
-      // Ephemeral public IP
+      nat_ip = google_compute_address.static.address
     }
   }
 
